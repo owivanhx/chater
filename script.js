@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2 class="book-title">${item.nome}</h2>
           <div class="polaroid">
             <img src="${item.imagem}" alt="${item.obra}">
-            <span class="bow top-right">🎀</span>
+            <img src="bowblack.png" class="bow top-right" alt="Laço">
           </div>
         </div>
         <div class="journal-info">
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${item.resumo}</p>
         </div>
       `;
-
+      
       journalsGrid.appendChild(card);
     });
   }
