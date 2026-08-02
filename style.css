@@ -150,10 +150,9 @@ body {
   pointer-events: none; /* Evita que o laço atrapalhe cliques */
 }
 
-.bow.top-right {
-  top: -12px;
-  right: -12px;
-}
+.bow.top-right { top: -6px; right: -6px; }
+.bow.bottom-left { bottom: 3px; left: -6px; }
+.bow.bottom-right { bottom: 3px; right: -6px; }
 
 /* Informações */
 .journal-info {
