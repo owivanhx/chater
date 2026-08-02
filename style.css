@@ -141,16 +141,19 @@ body {
   border-radius: 2px;
 }
 
-/* Laços */
+/* Ajuste para a imagem do laço */
 .bow {
   position: absolute;
-  font-size: 1rem;
+  width: 35px; /* Ajuste o tamanho da imagem aqui se preferir */
+  height: auto;
   user-select: none;
+  pointer-events: none; /* Evita que o laço atrapalhe cliques */
 }
 
-.bow.top-right { top: -6px; right: -6px; }
-.bow.bottom-left { bottom: 3px; left: -6px; }
-.bow.bottom-right { bottom: 3px; right: -6px; }
+.bow.top-right {
+  top: -12px;
+  right: -12px;
+}
 
 /* Informações */
 .journal-info {
