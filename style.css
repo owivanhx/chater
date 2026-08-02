@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fcfcfc;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: 90px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Header Responsivo */
+.app-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo h1 {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  color: #8c7a6b;
+  font-weight: 600;
+}
+
+/* Layout Responsivo para Celulares e Tablets */
+.journals-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 20px 15px;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.journal-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+/* Botão de Excluir Caderno */
+.delete-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 100, 100, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* Estilo do Caderno Adaptado para Telas Menores */
+.book {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 10px 16px 16px 10px;
+  position: relative;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 10px;
+  transition: transform 0.2s ease;
+}
+
+.book:active {
+  transform: scale(0.98);
+}
+
+/* Cores dos Cadernos */
+.book.white { background-color: #ffffff; }
+.book.blue-tint { background-color: #f4f7f9; }
+.book.cream { background-color: #fbf9f5; }
+
+/* Tira do Caderno */
+.strap {
+  position: absolute;
+  right: -8px;
+  top: 45%;
+  width: 18px;
+  height: 28px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+}
+
+/* Título */
+.book-title {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  color: #666;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-align: center;
+  word-break: break-word;
+}
+
+/* Polaroid Responsiva */
+.polaroid {
+  width: 80%;
+  height: 65%;
+  background: white;
+  padding: 6px 6px 22px 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* Laços */
+.bow {
+  position: absolute;
+  font-size: 1rem;
+  user-select: none;
+}
+
+.bow.top-right { top: -6px; right: -6px; }
+.bow.bottom-left { bottom: 3px; left: -6px; }
+.bow.bottom-right { bottom: 3px; right: -6px; }
+
+/* Informações */
+.journal-info {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.journal-info h3 {
+  font-size: 0.85rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.journal-info .dots {
+  background: #333;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0px 3px;
+  font-size: 0.55rem;
+}
+
+.journal-info p {
+  font-size: 0.75rem;
+  color: #aaa;
+}
+
+/* Botão Flutuante (+) Ajustado */
+.fab-btn {
+  position: fixed;
+  bottom: 75px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: #222222;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 20;
+}
+
+/* Menu Inferior Fixo */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 20;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #bbb;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: #8c7a6b;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 1.1rem;
+}
+
+/* Regra extra para telas médias/grandes (Tablets e PC) */
+@media (min-width: 600px) {
+  .journals-container {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .book-title {
+    font-size: 1.5rem;
+  }
+}
