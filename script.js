@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Dados iniciais baseados na classe Chater
   const defaultJournals = [
-    new Chater("my planner <3", "DAYOL", "4page", "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300"),
-    new Chater("my diary <3", "DAYOL", "1page", "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=300"),
-    new Chater("scrapbook", "DAYOL", "0page", "https://images.unsplash.com/photo-1513151233558-d860c5398176?w=300")
+    new Chater("Hyuna", "Alien Stage", "uma garota descolada, com uma protese na perna", "https://i.pinimg.com/736x/d0/fc/61/d0fc61c011af066710aa3dfa8ede3cb6.jpg"),
+    new Chater("Phainon", "Honkai: Star Rail", "???", "https://i.pinimg.com/736x/cf/72/23/cf7223a90c2f0fffd45be13dce39f3bd.jpg"),
+    new Chater("Aki Maeno", "ZENO remake", "um jovem adulto de 23 anos, que tinha uma doença, mas agora é medico", "https://i.pinimg.com/736x/fb/d3/9d/fbd39dcc39d8f6ed9f8ffd536eb5797e.jpg")
   ];
 
   // 2. Carregar dados da "nuvem" do navegador (localStorage)
@@ -63,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 5. Criar novo item usando a classe Chater
   addBtn.addEventListener("click", () => {
-    const nome = prompt("Nome do caderno/card:", "meu novo diário");
+    const nome = prompt("nome do personagem :", "ensira o nome");
     if (!nome || nome.trim() === "") return;
 
-    const obra = prompt("Nome da obra / categoria:", "New Diary") || "New Diary";
-    const resumo = prompt("Resumo / número de páginas:", "0page") || "0page";
-    const imagem = prompt("URL da imagem (opcional):") || "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300";
+    const obra = prompt("nome da obra :", "ensira a obra") || "obra não definida";
+    const resumo = prompt("escreva um resumo sobre o perso :", "ensira o resumo") || "resumo não definido";
+    const imagem = prompt("URL da imagem :") || "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300";
 
     // Criando a nova instância da classe Chater
     const novoChater = new Chater(nome.trim(), obra.trim(), resumo.trim(), imagem.trim());
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 6. Função para apagar caderno
   window.deleteJournal = function (id) {
-    if (confirm("Deseja apagar este registro?")) {
+    if (confirm("deseja apagar este registro?")) {
       let journals = loadJournals();
       journals = journals.filter((item) => item.id !== id);
       saveJournals(journals);
