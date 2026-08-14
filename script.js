@@ -1,12 +1,12 @@
-// 1. Classe conforme solicitada (com o método constructor corrigido)
+// 1. Classe Chater
 class Chater {
   constructor(nome, obra, resumo, imagem) {
     this.id = Date.now() + Math.random(); // ID único para salvar/deletar
-    this.nome = nome;     // Corresponde ao Título do diário
-    this.obra = obra;     // Corresponde ao Nome da obra/categoria
-    this.resumo = resumo; // Descrição ou número de páginas
+    this.nome = nome;     // Nome do personagem
+    this.obra = obra;     // Nome da obra/categoria
+    this.resumo = resumo; // Descrição ou resumo do personagem
     this.imagem = imagem; // URL da imagem do Polaroid
-    this.estilo = ["white", "blue-tint", "cream"][Math.floor(Math.random() * 3)]; // Cor da capa
+    this.estilo = ["white", "blue-tint", "cream"][Math.floor(Math.random() * 3)]; // Cor do fundo do card
   }
 }
 
@@ -16,23 +16,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Dados iniciais baseados na classe Chater
   const defaultJournals = [
-    new Chater("Hyuna", "Alien Stage", "uma garota descolada, com uma protese na perna", "https://i.pinimg.com/736x/d0/fc/61/d0fc61c011af066710aa3dfa8ede3cb6.jpg"),
+    new Chater("Hyuna", "Alien Stage", "uma garota descolada, com uma prótese na perna", "https://i.pinimg.com/736x/d0/fc/61/d0fc61c011af066710aa3dfa8ede3cb6.jpg"),
     new Chater("Phainon", "Honkai: Star Rail", "???", "https://i.pinimg.com/736x/cf/72/23/cf7223a90c2f0fffd45be13dce39f3bd.jpg"),
-    new Chater("Aki Maeno", "ZENO remake", "um jovem adulto de 23 anos, que tinha uma doença, mas agora é medico", "https://i.pinimg.com/736x/fb/d3/9d/fbd39dcc39d8f6ed9f8ffd536eb5797e.jpg")
+    new Chater("Aki Maeno", "ZENO remake", "um jovem adulto de 23 anos, que tinha uma doença, mas agora é médico", "https://i.pinimg.com/736x/fb/d3/9d/fbd39dcc39d8f6ed9f8ffd536eb5797e.jpg")
   ];
 
-  // 2. Carregar dados da "nuvem" do navegador (localStorage)
+  // 2. Carregar dados do localStorage
   function loadJournals() {
     const saved = localStorage.getItem("dayol_journals");
     return saved ? JSON.parse(saved) : defaultJournals;
   }
 
-  // 3. Salvar alterações
+  // 3. Salvar alterações no localStorage
   function saveJournals(journals) {
     localStorage.setItem("dayol_journals", JSON.stringify(journals));
   }
 
-  // 4. Renderizar a lista de cadernos na tela
+  // 4. Renderizar os personagens na tela
   function renderJournals() {
     const journals = loadJournals();
     journalsGrid.innerHTML = "";
@@ -63,14 +63,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // 5. Criar novo item usando a classe Chater
   addBtn.addEventListener("click", () => {
-    const nome = prompt("nome do personagem :", "ensira o nome");
+    const nome = prompt("Nome do personagem:", "insira o nome");
     if (!nome || nome.trim() === "") return;
 
-    const obra = prompt("nome da obra :", "ensira a obra") || "obra não definida";
-    const resumo = prompt("escreva um resumo sobre o perso :", "ensira o resumo") || "resumo não definido";
-    const imagem = prompt("URL da imagem :") || "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300";
+    const obra = prompt("Nome da obra:", "insira a obra") || "obra não definida";
+    const resumo = prompt("Escreva um resumo sobre o personagem:", "insira o resumo") || "resumo não definido";
+    const imagem = prompt("URL da imagem:") || "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300";
 
-    // Criando a nova instância da classe Chater
     const novoChater = new Chater(nome.trim(), obra.trim(), resumo.trim(), imagem.trim());
 
     const journals = loadJournals();
@@ -80,9 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
     renderJournals();
   });
 
-  // 6. Função para apagar caderno
+  // 6. Função para apagar personagem
   window.deleteJournal = function (id) {
-    if (confirm("deseja apagar este registro?")) {
+    if (confirm("Deseja apagar este registro?")) {
       let journals = loadJournals();
       journals = journals.filter((item) => item.id !== id);
       saveJournals(journals);
